@@ -83,9 +83,10 @@ class _MyHomePageState extends State<MyHomePage> {
           token = payload['token'];
         });
       }
+      window.parent?.postMessage({'type': 'ready $token'}, '*');
+
     });
 
-    window.parent?.postMessage({'type': 'ready'}, '*');
   }
 
   @override
