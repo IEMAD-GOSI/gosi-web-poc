@@ -77,9 +77,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void setupMessageListener() {
     window.onMessage.listen((event) {
+      window.console.log('#3 ready event in${event}');
+      window.console.log('#3 ready event.data in${event.data}');
       if (event.data is Map && event.data['type'] == 'auth') {
-        window.console.log('#3 ready event in${event}');
-        window.console.log('#3 ready event.data in${event.data}');
         final payload = event.data['payload'];
         setState(() {
           token = payload['token'];
