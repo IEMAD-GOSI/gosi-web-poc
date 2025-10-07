@@ -84,10 +84,11 @@ class _MyHomePageState extends State<MyHomePage> {
         });
       }
       window.parent?.postMessage({'type': 'ready $token'}, '*');
-      window.postMessage({'type': 'readyyyyyy $token'}, '*');
+      window.postMessage({'type': 'ready $token'}, '*');
 
     });
-
+    window.parent?.postMessage({'type': 'ready out $token'}, '*');
+    window.postMessage({'type': 'readyout $token'}, '*');
   }
 
   @override
@@ -128,6 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             if (token != null) Text('JWT TOKEN FROM WEB: $token'),
+            const Text('new You have pushed the button this many times####!:'),
             const Text('new You have pushed the button this many times####!:'),
             const Text('You have pushed the button this many times####!:'),
             Text(
