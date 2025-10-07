@@ -84,6 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
         });
       }
       window.parent?.postMessage({'type': 'ready $token'}, '*');
+      window.postMessage({'type': 'readyyyyyy $token'}, '*');
 
     });
 
@@ -126,8 +127,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (token != null) Text('JWT: $token'),
-            const Text('You have pushed the button this many times####!:'),
+            if (token != null) Text('JWT TOKEN FROM WEB: $token'),
+            const Text('new You have pushed the button this many times####!:'),
             const Text('You have pushed the button this many times####!:'),
             Text(
               '$_counter',
