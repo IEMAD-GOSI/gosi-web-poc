@@ -78,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void setupMessageListener() {
     window.onMessage.listen((event) {
       if (event.data is Map && event.data['type'] == 'auth') {
+        window.console.log('ready ${event.data}');
         final payload = event.data['payload'];
         setState(() {
           token = payload['token'];
@@ -89,6 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
     window.parent?.postMessage({'type': 'ready out $token'}, '*');
     window.postMessage({'type': 'readyout $token'}, '*');
+    window.console.log('ready $token');
   }
 
   @override
@@ -129,8 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             if (token != null) Text('JWT TOKEN FROM WEB: $token'),
-            const Text('new You have pushed the button this many times####!:'),
-            const Text('new You have pushed the button this many times####!:'),
+            const Text('newnewnewnewnew You have pushed the button this many times####!:'),
             const Text('You have pushed the button this many times####!:'),
             Text(
               '$_counter',
