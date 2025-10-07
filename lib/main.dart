@@ -78,19 +78,20 @@ class _MyHomePageState extends State<MyHomePage> {
   void setupMessageListener() {
     window.onMessage.listen((event) {
       if (event.data is Map && event.data['type'] == 'auth') {
-        window.console.log('ready ${event.data}');
+        window.console.log('#3 ready event in${event}');
+        window.console.log('#3 ready event.data in${event.data}');
         final payload = event.data['payload'];
         setState(() {
           token = payload['token'];
         });
       }
       window.parent?.postMessage({'type': 'ready $token'}, '*');
-      window.postMessage({'type': 'ready $token'}, '*');
+      window.postMessage({'type': '#3 ready token in$token'}, '*');
 
     });
     window.parent?.postMessage({'type': 'ready out $token'}, '*');
-    window.postMessage({'type': 'readyout $token'}, '*');
-    window.console.log('ready $token');
+    window.postMessage({'type': 'ready token out $token'}, '*');
+    window.console.log('#3 ready token out $token');
   }
 
   @override
@@ -131,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             if (token != null) Text('JWT TOKEN FROM WEB: $token'),
-            const Text('newnewnewnewnew You have pushed the button this many times####!:'),
+            const Text('#3 You have pushed the button this many times####!:'),
             const Text('You have pushed the button this many times####!:'),
             Text(
               '$_counter',
