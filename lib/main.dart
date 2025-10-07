@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
           token = payload['token'];
         });
       }
-      window.parent?.postMessage({'type': 'ready $token'}, '*');
+      window.parent?.postMessage({'type': '#3 parent ready $token'}, '*');
       window.postMessage({'type': '#3 ready token in$token'}, '*');
 
     });
