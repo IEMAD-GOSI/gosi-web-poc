@@ -127,7 +127,8 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             if (token != null) Text('JWT: $token'),
-            const Text('You have pushed the button this many times:'),
+            const Text('You have pushed the button this many times####!:'),
+            const Text('You have pushed the button this many times####!:'),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
